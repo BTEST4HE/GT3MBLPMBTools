@@ -4,8 +4,7 @@ import helper
 
 
 def makeMblFromTextBin(p_input, p_output_dir, out_mbl_flags):
-    p_input_parent = p_input.parent
-    print(p_input_parent)
+    print(p_input.name + '\t', end='')
     with p_input.open('r', encoding='utf-8') as infile:
         mbl_text = infile.read()
     mbl_tree = eval(mbl_text)
@@ -18,6 +17,7 @@ def makeMblFromTextBin(p_input, p_output_dir, out_mbl_flags):
     p_output = helper.makeOutputDir(p_input, p_output_dir) / (mbl_filename + '.mbl')
     with p_output.open('wb') as outfile:
         outfile.write(mbl_bin_out)
+    print('Success')
 
 
 def makeMblFromTextBinRecursive(p_input, p_output_dir, out_mbl_flags):
@@ -29,11 +29,11 @@ def makeMblFromTextBinRecursive(p_input, p_output_dir, out_mbl_flags):
         p_o = p_output_dir / p_r.parents[0]
         if p_o.exists() is False:
             p_o.mkdir(parents=True, exist_ok=True)
-        print(p_r.name + '\t', end='')
         makeMblFromTextBin(p, p_o, out_mbl_flags)
 
 
 def makePmbFromTextBin(p_input, p_output_dir, out_pmb_flags):
+    print(p_input.name + '\t', end='')
     p_input_parent = p_input.parent
     with p_input.open('r', encoding='utf-8') as infile:
         pmb_text = infile.read()
@@ -54,6 +54,7 @@ def makePmbFromTextBin(p_input, p_output_dir, out_pmb_flags):
     p_output = helper.makeOutputDir(p_input, p_output_dir) / (pmb_filename + '.pmb')
     with p_output.open('wb') as outfile:
         outfile.write(pmb_bin_out)
+    print('Success')
 
 
 def makePmbFromTextBinRecursive(p_input, p_output_dir, out_pmb_flags):
@@ -65,5 +66,4 @@ def makePmbFromTextBinRecursive(p_input, p_output_dir, out_pmb_flags):
         p_o = p_output_dir / p_r.parents[0]
         if p_o.exists() is False:
             p_o.mkdir(parents=True, exist_ok=True)
-        print(p_r.name + '\t')
         makePmbFromTextBin(p, p_o, out_pmb_flags)

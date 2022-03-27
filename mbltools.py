@@ -1,13 +1,18 @@
-import mbl
 import argparse
+import pathlib
+import mbl
 import bin2bin as b2b
 import bin2text as b2t
 import text2bin as t2b
-import pathlib
+
 
 parser = argparse.ArgumentParser(prog='mbltools', description='Scripts to convert MBL files for playback '
                                                               'in the production version of GT3, export and import '
-                                                              'in text format, etc.')
+                                                              'in text format, etc. '
+                                                              'When converting from MBL to MBL, if the file before '
+                                                              'conversion and the file after conversion are the same, '
+                                                              'there is a specification that the converted file '
+                                                              'is not output.')
 parser.add_argument('input', type=pathlib.Path, help='input file path or directory')
 parser.add_argument('output_dir', type=pathlib.Path, nargs='?', default=None, help='output directory(optional)')
 parser.add_argument('-s', '--storedemo', help='output MBL files that can be played back in '
@@ -22,9 +27,9 @@ parser.add_argument('-i', '--textimport', help='import from text format MBL to b
                     action="store_true")
 args = parser.parse_args()
 
-print(repr(args.input))
+print('input:{}'.format(repr(args.input)))
 if args.output_dir:
-    print(repr(args.output_dir))
+    print('output:{}'.format(repr(args.output_dir)))
 
 if args.textexport:
     if args.recursive:
@@ -55,7 +60,6 @@ elif args.textimport:
         print('Error: In this case, "input" must be a file.')
 
 else:
-    print()
     if args.storedemo:
         mbl_flags = mbl.mbl_dict['mbl21']
     else:

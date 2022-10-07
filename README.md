@@ -42,3 +42,21 @@ When converting from PMB to PMB, if the file before conversion and the file afte
 `-r, --recursive`:reads "input" as a directory and recursively retrieves files in the directory  
 `-e, --textexport`:export from PMB file to text format and PMBBIN(image data) files  
 `-i, --textimport`:import from text format PMB and PMBBIN(image data) files to binary format PNB  (if you do not use the -r option, specify only the text file path in "input")
+
+# PMBBINPac
+This is a script to unpack and repack PMBBIN files (xxx.pmb.bin) output by the -e (--textexport) option of pmbtools.
+When unpacked, the output is in img,gz format.
+If -u(--unpack) or -e(repack) option is not specified, it means that -u option is specified.
+## Usage
+`PMBBINPac [options] input [output_dir]`
+
+### Positional arguments
+`input`:input file path or directory  
+`output_dir`:output directory(optional)  
+
+### Optional arguments(options)
+`-h, --help`:show this help message and exit  
+`-u, --unpack`:unpack PMBBIN into img,gz files  
+`-e, --repack`:repack the PMBBIN file in the directory where the img,gz file is stored  
+`-r, --recursive`:reads "input" as a directory and recursively retrieves files in the directory  
+`-g, --ungzip`:extract gzip file in PMBBIN to img file and output (unpack only)  

@@ -59,4 +59,7 @@ If -u(--unpack) or -e(repack) option is not specified, it means that -u option i
 `-u, --unpack`:unpack PMBBIN into img,gz files  
 `-e, --repack`:repack the PMBBIN file in the directory where the img,gz file is stored  
 `-r, --recursive`:reads "input" as a directory and recursively retrieves files in the directory  
-`-g, --ungzip`:extract gzip file in PMBBIN to img file and output (unpack only)  
+`-g, --ungzip`:extract gzip file in PMBBIN to img file and output (unpack only)
+
+### Additional Tool
+[GT3PMBBINEditor](https://github.com/kapilpokhrel/GT3PMBBINEditor) : GUI tool to edit .bin file.

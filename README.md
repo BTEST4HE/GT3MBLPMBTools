@@ -61,5 +61,12 @@ If -u(--unpack) or -e(repack) option is not specified, it means that -u option i
 `-r, --recursive`:reads "input" as a directory and recursively retrieves files in the directory  
 `-g, --ungzip`:extract gzip file in PMBBIN to img file and output (unpack only)
 
-### Additional Tool
-[GT3PMBBINEditor](https://github.com/kapilpokhrel/GT3PMBBINEditor) : GUI tool to edit .bin file.
+### Additional Tools
+
+[GT3PMBBINEditor](https://github.com/kapilpokhrel/GT3PMBBINEditor): GUI tool to edit .bin file.
+
+![GT3PMBBINEditor](GT3PMBBINEditor.png)
+
+[Texture Archive Editor](https://github.com/GirkovArpa/texture-archive-editor): Another GUI tool to edit .bin file.
+
+![Texture Archive Editor](texture-archive-editor.gif)
